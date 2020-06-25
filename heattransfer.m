@@ -82,7 +82,6 @@ function generate_Callback(hObject, eventdata, handles)
 model = createpde('thermal','steadystate');
 radius = handles.radius;
 height = handles.height;
-width = handles.width;
 % for void matrix
 if length(radius) == 1
     void = false;
@@ -100,7 +99,7 @@ if(handles.shape == 1)
     gm = multicylinder(radius,height,'void',void);
 end
 if(handles.shape == 2)
-    gm = multicuboid(radius,height,width,'void',void);
+    gm = multicuboid(radius,radius,height,'void',void);
 end 
 model.Geometry = gm;
 % for generating mesh 
